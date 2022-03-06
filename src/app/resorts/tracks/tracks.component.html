@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-9">
+        <table class="table table-sm">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Length</th>
+                <th scope="col">Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let track of tracks" [ngStyle]="{color: track.color}">
+                <td>{{track.name}}</td>
+                <td>{{track.length_km}}</td>
+                <td>{{track.rating}}</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-3">
+        <label>Sort by:</label>
+        <select #s (change)="onSortChange(s.value)">
+            <option value="rating">Rating</option>
+            <option value="length_km">Length</option>
+        </select>
+    </div>
+</div>
